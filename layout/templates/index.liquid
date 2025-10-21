@@ -1,0 +1,117 @@
+{% comment %}
+  MemeShield Pro — Home Page Template
+  Displays intro section + token highlights
+{% endcomment %}
+
+<section class="hero">
+  <div class="hero-text">
+    <h2>Welcome to <span class="highlight">MemeShield Pro</span></h2>
+    <p>Analyze new BNB meme tokens, detect honeypots, and monitor liquidity in real time.</p>
+    <a href="/pages/analyzer-dashboard" class="cta-btn">Launch Analyzer</a>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat-card">
+    <h3>120+</h3>
+    <p>Tokens Scanned</p>
+  </div>
+  <div class="stat-card">
+    <h3>95%</h3>
+    <p>Detection Accuracy</p>
+  </div>
+  <div class="stat-card">
+    <h3>24/7</h3>
+    <p>Live Tracking</p>
+  </div>
+</section>
+
+<section class="featured">
+  <h2 class="section-title">Featured Meme Tokens</h2>
+  <div class="token-grid">
+    {% assign tokens = "DOGEPEPE,SHIBA MEME,MOONINU" | split: "," %}
+    {% for token in tokens %}
+      <div class="token-card">
+        <h4>{{ token }}</h4>
+        <p>Liquidity: ${{ '10000' | plus: forloop.index0 | times: 1500 }}</p>
+        <p>Risk Score: {{ 50 | plus: forloop.index0 | times: 10 }}%</p>
+        <a href="/pages/analyzer-dashboard" class="token-btn">Analyze</a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+.hero {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: linear-gradient(145deg, #0d1117, #111827);
+  color: #e6edf3;
+}
+.hero-text h2 {
+  font-size: 2rem;
+  color: #00ff7f;
+}
+.hero-text .highlight {
+  color: #7fffd4;
+}
+.cta-btn {
+  display: inline-block;
+  background: #00ff7f;
+  color: #0d1117;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+.cta-btn:hover {
+  background: #00cc66;
+}
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  background: #111827;
+}
+.stat-card {
+  text-align: center;
+}
+.stat-card h3 {
+  font-size: 1.5rem;
+  color: #00ff7f;
+}
+.section-title {
+  text-align: center;
+  margin-top: 3rem;
+  color: #00ff7f;
+}
+.token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem;
+}
+.token-card {
+  background: #161b22;
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,255,127,0.1);
+}
+.token-card h4 {
+  margin: 0;
+  color: #7fffd4;
+}
+.token-btn {
+  display: inline-block;
+  background: #00ff7f;
+  color: #0d1117;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  margin-top: 0.8rem;
+  font-weight: 600;
+}
+.token-btn:hover {
+  background: #00cc66;
+}
+</style>
