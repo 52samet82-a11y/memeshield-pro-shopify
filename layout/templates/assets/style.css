@@ -1,0 +1,137 @@
+/* =====================================
+   MemeShield Pro — Shopify Theme Styles
+   ===================================== */
+
+:root {
+  --bg-dark: #0d1117;
+  --bg-card: #161b22;
+  --text-light: #e6edf3;
+  --text-muted: #9ba3af;
+  --accent: #00ff7f;
+  --danger: #e53935;
+  --warning: #ffb300;
+  --safe: #00c853;
+  --transition: all 0.3s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  background: var(--bg-card);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+header h1 {
+  color: var(--accent);
+  font-size: 1.5rem;
+}
+header nav a {
+  margin: 0 0.5rem;
+  color: var(--text-light);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+}
+header nav a:hover {
+  color: var(--accent);
+}
+
+/* MAIN CONTENT */
+main {
+  padding: 2rem;
+}
+section {
+  margin-bottom: 2rem;
+}
+
+/* CARDS */
+.card {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  transition: var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--bg-dark);
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.btn:hover {
+  background: #00cc66;
+}
+
+/* FOOTER */
+footer {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #222;
+}
+
+/* TABLES */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #222;
+  text-align: left;
+}
+th {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+td {
+  color: var(--text-light);
+}
+.score {
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+}
+.score.safe { background: var(--safe); }
+.score.medium { background: var(--warning); }
+.score.risky { background: var(--danger); }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+  nav {
+    margin-top: 0.5rem;
+  }
+  main {
+    padding: 1rem;
+  }
+}
