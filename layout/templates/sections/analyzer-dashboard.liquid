@@ -1,0 +1,121 @@
+{% comment %}
+  MemeShield Pro — Analyzer Dashboard Section
+  Displays token data, scores, and analytics summary
+{% endcomment %}
+
+<section class="analyzer-header">
+  <h2>BNB Meme Token Analyzer</h2>
+  <p>Scan and evaluate trending meme tokens across the Binance Smart Chain.</p>
+</section>
+
+<section class="token-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Token</th>
+        <th>Liquidity</th>
+        <th>24h Volume</th>
+        <th>Score</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% assign token_data = 
+        \"DOGEPEPE|24500|53000|92|Safe,
+        SHIBA MEME|4800|13000|68|Medium,
+        MOONINU|900|2200|42|Risky\" | split: ',' %}
+      {% for entry in token_data %}
+        {% assign data = entry | split: '|' %}
+        <tr>
+          <td>{{ data[0] }}</td>
+          <td>${{ data[1] }}</td>
+          <td>${{ data[2] }}</td>
+          <td>
+            <span class=\"score {{ data[4] | downcase }}\">{{ data[3] }}</span>
+          </td>
+          <td class=\"{{ data[4] | downcase }}\">{{ data[4] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<section class="summary">
+  <h3>Summary</h3>
+  <p>Total Tokens Scanned: 3</p>
+  <p>Average Risk Score: 67%</p>
+  <a href="/collections/all" class="cta-btn">Explore Safe Tokens</a>
+</section>
+
+<style>
+.analyzer-header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background: #0d1117;
+}
+.analyzer-header h2 {
+  color: #00ff7f;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.analyzer-header p {
+  color: #9ba3af;
+  font-size: 0.95rem;
+}
+.token-table {
+  overflow-x: auto;
+  padding: 1rem 2rem;
+}
+.token-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #161b22;
+  border-radius: 10px;
+}
+.token-table th, .token-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #222;
+}
+.token-table th {
+  color: #9ba3af;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.token-table td {
+  color: #e6edf3;
+}
+.score {
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+.score.safe { background: #00c853; }
+.score.medium { background: #ffb300; }
+.score.risky { background: #e53935; }
+.summary {
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+}
+.summary h3 {
+  color: #00ff7f;
+}
+.summary p {
+  color: #9ba3af;
+  margin: 0.2rem 0;
+}
+.cta-btn {
+  background: #00ff7f;
+  color: #0d1117;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 1rem;
+}
+.cta-btn:hover {
+  background: #00cc66;
+}
+</style>
