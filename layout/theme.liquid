@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page_title }} - MemeShield Pro</title>
+    {{ content_for_header }}
+
+    <!-- Fonts & Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="{{ 'style.css' | asset_url }}" rel="stylesheet" type="text/css">
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: #0d1117;
+        color: #e6edf3;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #161b22;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      }
+      header h1 {
+        font-size: 1.4rem;
+        color: #00ff7f;
+        margin: 0;
+      }
+      main {
+        padding: 2rem;
+      }
+      footer {
+        background: #161b22;
+        color: #999;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.8rem;
+        border-top: 1px solid #222;
+      }
+      a {
+        color: #00ff7f;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>MemeShield Pro</h1>
+      <nav>
+        <a href="/">Home</a> |
+        <a href="/pages/analyzer-dashboard">Analyzer</a> |
+        <a href="/collections/all">Store</a>
+      </nav>
+    </header>
+
+    <main>
+      {{ content_for_layout }}
+    </main>
+
+    <footer>
+      MemeShield Pro © {{ 'now' | date: '%Y' }} — BNB Meme Token Risk Analyzer
+    </footer>
+
+    {{ content_for_footer }}
+  </body>
+</html>
